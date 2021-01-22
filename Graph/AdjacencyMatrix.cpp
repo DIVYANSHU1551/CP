@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+
+//Type1
+class Graph {
+  private:
+  bool** adjMatrix;
+  int numVertices;
+
+   public:
+  // Initialize the matrix to zero
+  Graph(int numVertices) {
+    this->numVertices = numVertices;
+    adjMatrix = new bool*[numVertices];
+    for (int i = 0; i < numVertices; i++) {
+      adjMatrix[i] = new bool[numVertices];
+      for (int j = 0; j < numVertices; j++)
+        adjMatrix[i][j] = false;
+    }
+  }
+
+  // Add edges
+  void addEdge(int i, int j) {
+    adjMatrix[i][j] = true;
+    adjMatrix[j][i] = true;
+  }
+
+  // Remove edges
+  void removeEdge(int i, int j) {
+    adjMatrix[i][j] = false;
+    adjMatrix[j][i] = false;
+  }
+
+  // Print the martix
+  void toString() {
+    for (int i = 0; i < numVertices; i++) {
+      cout << i << " : ";
+      for (int j = 0; j < numVertices; j++)
+        cout << adjMatrix[i][j] << " ";
+      cout << "\n";
+    }
+  }
+};
+
+int main() {
+  Graph g(4);
+
+  g.addEdge(0, 1);
+  g.addEdge(0, 2);
+  g.addEdge(1, 2);
+  g.addEdge(2, 0);
+  g.addEdge(2, 3);
+
+  g.toString();
+}
+
+//Type2
+void graphMat()
+{
+    /*
+    n-number of vertices
+    e-number of edges
+    u-from vertex
+    v-to vertex
+    */
+   int mat[n][n];
+   for(int i=1;i<=e;i++)
+   {
+       cout<<"Enter edge no"<<i;
+       cout<<"from =";
+       cin>>u;
+       cout<<"To=";
+       cin>>v;
+       mat[u][v]=1;
+       mat[v][u]=1;
+   }
+   }
+
+}
